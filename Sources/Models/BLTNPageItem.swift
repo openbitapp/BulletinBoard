@@ -120,7 +120,7 @@ open class BLTNPageItem: BLTNActionItem {
             }
             self.imageView = imageView
             contentViews.append(imageView)
-            if let viewsUnderImage = makeHeaderViews(with: interfaceBuilder) {
+            if let viewsUnderImage = makeViewsUnderImage(with: interfaceBuilder) {
                 contentViews.append(contentsOf: viewsUnderImage)
             }
         }
