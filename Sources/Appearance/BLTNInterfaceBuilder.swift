@@ -87,6 +87,33 @@ import UIKit
     }
 
     /**
+     * Creates a standard text view with an optional delegate.
+     *
+     * - parameter placeholder: The placeholder text.
+     * - parameter returnKey: The type of return key to apply to the text field.
+     * - parameter delegate: The delegate for the text field.
+     */
+
+    @objc open func makeTextView(attributedText: NSAttributedString? = nil,
+                                 font: UIFont? = nil,
+                                 textAlignment: NSTextAlignment = .center,
+                                 isEditable: Bool = false,
+                                 returnKey: UIReturnKeyType = .default,
+                                 delegate: UITextViewDelegate? = nil) -> UITextView {
+        let textView = UITextView()
+
+        textView.attributedText = attributedText
+        textView.font = font
+        textView.isEditable = isEditable
+        textView.returnKeyType = returnKey
+        textView.textAlignment = textAlignment
+
+        textView.delegate = delegate
+
+        return textView
+    }
+
+    /**
      * Creates a standard action (main) button.
      *
      * The created button will have rounded corners, a background color set to the `tintColor` and
