@@ -321,7 +321,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
         if let footerViews = makeFooterViews(with: interfaceBuilder) {
             arrangedSubviews.append(contentsOf: footerViews)
         }
-        return arrangedSubviews;
+        return arrangedSubviews
 
     }
 
