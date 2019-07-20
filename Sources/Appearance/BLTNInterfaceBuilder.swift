@@ -107,6 +107,7 @@ import UIKit
         textView.isEditable = isEditable
         textView.returnKeyType = returnKey
         textView.textAlignment = textAlignment
+        textView.isScrollEnabled = false
 
         textView.delegate = delegate
 
