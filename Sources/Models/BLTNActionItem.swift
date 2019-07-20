@@ -300,19 +300,23 @@ open class BLTNActionItem: NSObject, BLTNItem {
 
         // Buttons stack
 
-        guard let actionButtonTitle = actionButtonTitle,
-            let alternativeButtonTitle = alternativeButtonTitle
-            else { return arrangedSubviews }
+        if actionButtonTitle == nil && alternativeButtonTitle == nil {
+            return arrangedSubviews
+        }
 
         let buttonsStack = interfaceBuilder.makeGroupStack(spacing: 10)
 
-        let buttonWrapper = interfaceBuilder.makeActionButton(title: actionButtonTitle)
-        buttonsStack.addArrangedSubview(buttonWrapper)
-        self.actionButton = buttonWrapper.button
+        if let actionButtonTitle = actionButtonTitle {
+            let buttonWrapper = interfaceBuilder.makeActionButton(title: actionButtonTitle)
+            buttonsStack.addArrangedSubview(buttonWrapper)
+            self.actionButton = buttonWrapper.button
+        }
 
-        let alternativeButtonWrapper = interfaceBuilder.makeActionButton(title: alternativeButtonTitle)
-        buttonsStack.addArrangedSubview(alternativeButtonWrapper)
-        self.alternativeButton = alternativeButtonWrapper.button
+        if let alternativeButtonTitle = alternativeButtonTitle {
+            let alternativeButtonWrapper = interfaceBuilder.makeActionButton(title: alternativeButtonTitle)
+            buttonsStack.addArrangedSubview(alternativeButtonWrapper)
+            self.alternativeButton = alternativeButtonWrapper.button
+        }
 
         arrangedSubviews.append(buttonsStack)
 
