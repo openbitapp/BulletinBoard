@@ -296,19 +296,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
         let interfaceBuilder = interfaceBuilderType.init(appearance: appearance, item: self)
 
         let contentViews = makeContentViews(with: interfaceBuilder)
-//        arrangedSubviews.append(contentsOf: contentViews)
-
-        let contentViewsStack = interfaceBuilder.makeGroupStack(spacing: 10)
-
-        contentViews.forEach { view in
-            contentViewsStack.addArrangedSubview(view)
-        }
-
-        let scrollView = UIScrollView(frame: .zero)
-
-        scrollView.addSubview(contentViewsStack)
-
-        arrangedSubviews.append(scrollView)
+        arrangedSubviews.append(contentsOf: contentViews)
 
         // Buttons stack
 
