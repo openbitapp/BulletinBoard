@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -16,14 +16,15 @@
 				559F8E9F204DBFED00322949 /* PBXTargetDependency */,
 			);
 			name = "All Demos";
+			packageProductDependencies = (
+				F1DFDB6722F1D1FF005580A6 /* BulletinBoard */,
+			);
 			productName = "All Demos";
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		5506756B1F90ADEF00874D8B /* BackgroundStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506756A1F90ADEF00874D8B /* BackgroundStyles.swift */; };
-		550A8C50208DEA550056F3C7 /* BLTNBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A8C4F208DEA550056F3C7 /* BLTNBoard.framework */; };
-		550A8C51208DEA550056F3C7 /* BLTNBoard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 550A8C4F208DEA550056F3C7 /* BLTNBoard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		551CF5F81FBF8492007DFEEA /* Main-Swift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D7021C1FBCCA1A00835D8A /* Main-Swift.storyboard */; };
 		553CDD4D1FD6F44B00E18C82 /* PetValidationBulletinItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CDD4C1FD6F44B00E18C82 /* PetValidationBulletinItem.swift */; };
 		558A12451F7D7865005EC97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558A12441F7D7865005EC97C /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		55DADE831F7E4204001B11A2 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DADE821F7E4204001B11A2 /* PermissionsManager.swift */; };
 		55DADE851F7E592F001B11A2 /* CollectionUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DADE841F7E592F001B11A2 /* CollectionUtilities.swift */; };
 		652A87ED1FA24C8B006CDCF6 /* TextFieldBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A87EC1FA24C8B006CDCF6 /* TextFieldBulletinPage.swift */; };
+		F1DFDB6A22F1D242005580A6 /* BulletinBoard in Frameworks */ = {isa = PBXBuildFile; productRef = F1DFDB6922F1D242005580A6 /* BulletinBoard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				550A8C51208DEA550056F3C7 /* BLTNBoard.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,8 +67,6 @@
 
 /* Begin PBXFileReference section */
 		5506756A1F90ADEF00874D8B /* BackgroundStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStyles.swift; sourceTree = "<group>"; };
-		550A8C4F208DEA550056F3C7 /* BLTNBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BLTNBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		550A8C52208DEA590056F3C7 /* BLTNBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BLTNBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		551CF5FA1FBF849A007DFEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Main-ObjC.storyboard"; sourceTree = "<group>"; };
 		551CF5FD1FBF86F2007DFEEA /* Info-ObjC.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-ObjC.plist"; sourceTree = "<group>"; };
 		551CF5FE1FBF86F2007DFEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550A8C50208DEA550056F3C7 /* BLTNBoard.framework in Frameworks */,
+				F1DFDB6A22F1D242005580A6 /* BulletinBoard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,13 +117,12 @@
 		558A12381F7D7865005EC97C = {
 			isa = PBXGroup;
 			children = (
-				550A8C52208DEA590056F3C7 /* BLTNBoard.framework */,
-				550A8C4F208DEA550056F3C7 /* BLTNBoard.framework */,
 				55D7021E1FBCCA1A00835D8A /* Assets.xcassets */,
 				551CF5FC1FBF86F2007DFEEA /* Configs */,
 				55D702191FBCCA1A00835D8A /* Base.lproj */,
 				558A12431F7D7865005EC97C /* Swift */,
 				558A12421F7D7865005EC97C /* Products */,
+				F1DFDB6822F1D242005580A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +179,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F1DFDB6822F1D242005580A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,6 +203,9 @@
 			dependencies = (
 			);
 			name = "BB-Swift";
+			packageProductDependencies = (
+				F1DFDB6922F1D242005580A6 /* BulletinBoard */,
+			);
 			productName = Example;
 			productReference = 558A12411F7D7865005EC97C /* BB-Swift.app */;
 			productType = "com.apple.product-type.application";
@@ -234,6 +242,9 @@
 				de,
 			);
 			mainGroup = 558A12381F7D7865005EC97C;
+			packageReferences = (
+				F1DFDB6622F1D1FF005580A6 /* XCRemoteSwiftPackageReference "BulletinBoard" */,
+			);
 			productRefGroup = 558A12421F7D7865005EC97C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -429,7 +440,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -442,7 +454,10 @@
 				DEVELOPMENT_TEAM = J5UBDLMZ89;
 				INFOPLIST_FILE = "$(SRCROOT)/Configs/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.BulletinBoard.BB-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -458,7 +473,10 @@
 				DEVELOPMENT_TEAM = J5UBDLMZ89;
 				INFOPLIST_FILE = "$(SRCROOT)/Configs/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.BulletinBoard.BB-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -515,6 +533,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F1DFDB6622F1D1FF005580A6 /* XCRemoteSwiftPackageReference "BulletinBoard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openbitapp/BulletinBoard.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1DFDB6722F1D1FF005580A6 /* BulletinBoard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1DFDB6622F1D1FF005580A6 /* XCRemoteSwiftPackageReference "BulletinBoard" */;
+			productName = BulletinBoard;
+		};
+		F1DFDB6922F1D242005580A6 /* BulletinBoard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1DFDB6622F1D1FF005580A6 /* XCRemoteSwiftPackageReference "BulletinBoard" */;
+			productName = BulletinBoard;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 558A12391F7D7865005EC97C /* Project object */;
 }
