@@ -59,6 +59,9 @@ import UIKit
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = appearance.makeDescriptionFont()
 
+        descriptionLabel.adjustsFontSizeToFitWidth = appearance.shouldScaleFontIfContentTooLong
+        descriptionLabel.minimumScaleFactor = appearance.minimumScaleFactor
+
         return descriptionLabel
 
     }

@@ -73,6 +73,14 @@ import UIKit
 
     @objc public var shouldUseCompactDescriptionText: Bool = false
 
+    /**
+     * Whether the description text should be displayed with a smaller font.
+     *
+     * You should set this to `true` if your text is long (more that two sentences).
+     */
+
+    @objc public var shouldScaleFontIfContentTooLong: Bool = false
+
 
     // MARK: - Font Constants
 
@@ -90,6 +98,9 @@ import UIKit
 
     /// The font size of alternative buttons (default 15).
     @objc public var alternativeButtonFontSize: CGFloat = 15
+
+    /// The minimum scale factor for font (default 1).
+    @objc public var minimumScaleFactor: CGFloat = 1
 
 }
 
