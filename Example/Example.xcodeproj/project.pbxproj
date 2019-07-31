@@ -40,9 +40,6 @@
 		55DADE851F7E592F001B11A2 /* CollectionUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DADE841F7E592F001B11A2 /* CollectionUtilities.swift */; };
 		652A87ED1FA24C8B006CDCF6 /* TextFieldBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A87EC1FA24C8B006CDCF6 /* TextFieldBulletinPage.swift */; };
 		F1DFDB6E22F1D581005580A6 /* BulletinBoard in Frameworks */ = {isa = PBXBuildFile; productRef = F1DFDB6D22F1D581005580A6 /* BulletinBoard */; };
-		F1DFDB7222F1D889005580A6 /* CloseGlyph.png in Resources */ = {isa = PBXBuildFile; fileRef = F1DFDB6F22F1D889005580A6 /* CloseGlyph.png */; };
-		F1DFDB7322F1D889005580A6 /* CloseGlyph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1DFDB7022F1D889005580A6 /* CloseGlyph@2x.png */; };
-		F1DFDB7422F1D889005580A6 /* CloseGlyph@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1DFDB7122F1D889005580A6 /* CloseGlyph@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +91,6 @@
 		55DADE821F7E4204001B11A2 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 		55DADE841F7E592F001B11A2 /* CollectionUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtilities.swift; sourceTree = "<group>"; };
 		652A87EC1FA24C8B006CDCF6 /* TextFieldBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBulletinPage.swift; sourceTree = "<group>"; };
-		F1DFDB6F22F1D889005580A6 /* CloseGlyph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CloseGlyph.png; path = ../../Sources/Resources/CloseGlyph.png; sourceTree = "<group>"; };
-		F1DFDB7022F1D889005580A6 /* CloseGlyph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CloseGlyph@2x.png"; path = "../../Sources/Resources/CloseGlyph@2x.png"; sourceTree = "<group>"; };
-		F1DFDB7122F1D889005580A6 /* CloseGlyph@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CloseGlyph@3x.png"; path = "../../Sources/Resources/CloseGlyph@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,9 +139,6 @@
 			children = (
 				558A12441F7D7865005EC97C /* AppDelegate.swift */,
 				558A12461F7D7865005EC97C /* ViewController.swift */,
-				F1DFDB6F22F1D889005580A6 /* CloseGlyph.png */,
-				F1DFDB7022F1D889005580A6 /* CloseGlyph@2x.png */,
-				F1DFDB7122F1D889005580A6 /* CloseGlyph@3x.png */,
 				55D702161FBCC97B00835D8A /* Bulletin */,
 				55DADE7D1F7E3BBA001B11A2 /* Supporting Files */,
 			);
@@ -272,9 +263,6 @@
 				551CF5F81FBF8492007DFEEA /* Main-Swift.storyboard in Resources */,
 				55D702221FBCCA3600835D8A /* Assets.xcassets in Resources */,
 				55D7022C1FBCCADC00835D8A /* LaunchScreen.storyboard in Resources */,
-				F1DFDB7222F1D889005580A6 /* CloseGlyph.png in Resources */,
-				F1DFDB7322F1D889005580A6 /* CloseGlyph@2x.png in Resources */,
-				F1DFDB7422F1D889005580A6 /* CloseGlyph@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
