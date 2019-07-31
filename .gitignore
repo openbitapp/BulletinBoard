@@ -35,6 +35,9 @@ playground.xcworkspace
 Packages/
 Package.pins
 .build/
+.swiftpm
 
 # Carthage
 Carthage/Build
+
+

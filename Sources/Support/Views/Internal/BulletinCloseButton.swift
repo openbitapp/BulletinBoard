@@ -37,9 +37,9 @@ class BulletinCloseButton: UIControl, HighlighterTarget {
         // Content
 
         isAccessibilityElement = true
-        accessibilityLabel = NSLocalizedString("Close", tableName: "Localizable",
-                                               bundle: Bundle(for: BulletinCloseButton.self), comment: "")
-
+//        accessibilityLabel = NSLocalizedString("Close", tableName: "Localizable",
+//                                               bundle: Bundle(for: BulletinCloseButton.self), comment: "")
+        accessibilityLabel = NSLocalizedString("Close", comment: "")
         // Layout
 
         addSubview(backgroundContainer)
