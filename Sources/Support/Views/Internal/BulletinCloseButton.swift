@@ -47,8 +47,9 @@ class BulletinCloseButton: UIControl, HighlighterTarget {
 
         backgroundContainer.layer.cornerRadius = 14
 
-        let glyph = UIImage(named: "CloseGlyph", in: Bundle(for: BulletinCloseButton.self), compatibleWith: nil)!
-        closeGlyph.image = glyph.withRenderingMode(.alwaysTemplate)
+//        let glyph = UIImage(named: "CloseGlyph", in: Bundle(for: BulletinCloseButton.self), compatibleWith: nil)!
+        let glyph = UIImage(named: "CloseGlyph")
+        closeGlyph.image = glyph?.withRenderingMode(.alwaysTemplate)
         closeGlyph.clipsToBounds = true
 
         backgroundContainer.isUserInteractionEnabled = false
