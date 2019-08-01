@@ -150,7 +150,8 @@ open class BLTNPageItem: BLTNActionItem {
             }
         }
 
-//        let cardPadding = edgeSpacing.rawValue
+        let cardPadding = edgeSpacing.rawValue
+        let safeArea = manager?.presentingWindow?.safeAreaInsets ?? .zero
 //        let safeArea = UIScreen.mai .view.safeAreaIfAvailable ?? .zero
 //        let padding = safeArea.left + safeArea.right + (cardPadding * 2)
 //        let maxWidth = bulletinController.view.bounds.size.width - padding
@@ -236,3 +237,19 @@ open class BLTNPageItem: BLTNActionItem {
         return nil
     }
 }
+
+
+//extension UIScreen {
+//
+//    public var safeAreaInsets: UIEdgeInsets? {
+//        guard let rootView = UIApplication.shared.keyWindow else { return .zero }
+//        if let mainController = rootView.rootViewController as? MainController,
+//            let selectedController = mainController.selectedViewController as? UINavigationController,
+//            let topController = selectedController.topViewController {
+//            return topController.view?.safeAreaInsets ?? selectedController.view?.safeAreaInsets ?? rootView.safeAreaInsets
+//        }
+//        return rootView.safeAreaInsets
+////        guard let rootController = rootView.rootViewController else { return rootView.safeAreaInsets }
+////        return rootController.view.safeAreaInsets
+//    }
+//}
