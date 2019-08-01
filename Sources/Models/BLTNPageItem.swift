@@ -164,7 +164,9 @@ open class BLTNPageItem: BLTNActionItem {
             contentViewsHeight += view.intrinsicContentSize.height + stackView.spacing
         }
 
-        contentHeight -= contentViewsHeight
+        if contentHeight >= UIScreen.main.bounds.height {
+            contentHeight = UIScreen.main.bounds.height - contentViewsHeight
+        }
 
         stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: contentHeight).isActive = true
         contentViews.append(stackView)
