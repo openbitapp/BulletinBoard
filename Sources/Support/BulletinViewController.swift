@@ -144,15 +144,15 @@ extension BulletinViewController {
         // ScrollView
 
         scrollView.addSubview(contentStackView)
-//
-//        contentView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-//        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-//        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-//        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-//
-//        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        contentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        contentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+
+        contentStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
 
         // Content Stack View
 
