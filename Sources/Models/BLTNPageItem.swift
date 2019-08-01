@@ -108,6 +108,8 @@ open class BLTNPageItem: BLTNActionItem {
             }
         }
 
+        let stackView = interfaceBuilder.makeScrollableStack()
+
         // Image View
         if let image = self.image {
             let imageView = UIImageView()
@@ -119,9 +121,13 @@ open class BLTNPageItem: BLTNActionItem {
                 imageView.accessibilityLabel = accessibilityLabel
             }
             self.imageView = imageView
-            contentViews.append(imageView)
+//            contentViews.append(imageView)
+            stackView.stackView.addArrangedSubview(imageView)
             if let viewsUnderImage = makeViewsUnderImage(with: interfaceBuilder) {
-                contentViews.append(contentsOf: viewsUnderImage)
+//                contentViews.append(contentsOf: viewsUnderImage)
+                viewsUnderImage.forEach { view in
+                    stackView.stackView.addArrangedSubview(view)
+                }
             }
         }
 
@@ -136,11 +142,17 @@ open class BLTNPageItem: BLTNActionItem {
         }
 
         if let descriptionLabel = descriptionLabel {
-            contentViews.append(descriptionLabel)
+//            contentViews.append(descriptionLabel)
+            stackView.stackView.addArrangedSubview(descriptionLabel)
             if let viewsUnderDescription = makeViewsUnderDescription(with: interfaceBuilder) {
-                contentViews.append(contentsOf: viewsUnderDescription)
+//                contentViews.append(contentsOf: viewsUnderDescription)
+                viewsUnderDescription.forEach { view in
+                    stackView.stackView.addArrangedSubview(view)
+                }
             }
         }
+
+        contentViews.append(stackView)
 
         return contentViews
     }
