@@ -304,22 +304,26 @@ open class BLTNActionItem: NSObject, BLTNItem {
         let maxWidth = self.maxWidth
         let maxHeight = self.maxHeight
 
-        var index: Int?
+//        var index: Int?
 
         let interfaceBuilder = interfaceBuilderType.init(appearance: appearance, item: self)
 
         let contentViews = makeContentViews(with: interfaceBuilder)
         arrangedSubviews.append(contentsOf: contentViews)
+        contentViews.forEach { view in
+            contentViewsHeight += view.intrinsicContentSize.height
+        }
 
         let scrollableView = makeScrollableViews(with: interfaceBuilder)
         if let scrollable = scrollableView {
+            arrangedSubviews.append(scrollable)
             scrollable.stackView.arrangedSubviews.forEach { view in
                 scrollableHeight += view.sizeThatFits(.init(width: maxWidth, height: 0)).height
             }
 
             scrollableHeight += CGFloat(scrollable.stackView.arrangedSubviews.count - 1) * scrollable.stackView.spacing
 
-            index = arrangedSubviews.count
+//            index = arrangedSubviews.count
         }
 
         // Buttons stack
@@ -334,12 +338,14 @@ open class BLTNActionItem: NSObject, BLTNItem {
             let buttonWrapper = interfaceBuilder.makeActionButton(title: actionButtonTitle)
             buttonsStack.addArrangedSubview(buttonWrapper)
             self.actionButton = buttonWrapper.button
+            contentViewsHeight += 55
         }
 
         if let alternativeButtonTitle = alternativeButtonTitle {
             let alternativeButtonWrapper = interfaceBuilder.makeActionButton(title: alternativeButtonTitle)
             buttonsStack.addArrangedSubview(alternativeButtonWrapper)
             self.alternativeButton = alternativeButtonWrapper.button
+            contentViewsHeight += 55
         }
 
         arrangedSubviews.append(buttonsStack)
@@ -348,22 +354,23 @@ open class BLTNActionItem: NSObject, BLTNItem {
 
         if let footerViews = makeFooterViews(with: interfaceBuilder) {
             arrangedSubviews.append(contentsOf: footerViews)
-        }
-
-        if let scrollable = scrollableView, let i = index {
-            let subviews = recursiveArrangedSubviews(in: arrangedSubviews).filter { !($0 is UIStackView) }
-            subviews.forEach { view in
+            footerViews.forEach { view in
                 contentViewsHeight += view.intrinsicContentSize.height
             }
+        }
 
-            contentViewsHeight += CGFloat(arrangedSubviews.count - 1) * scrollable.stackView.spacing
+        if let scrollable = scrollableView {
+            let subviews = recursiveArrangedSubviews(in: arrangedSubviews).filter { !($0 is UIStackView) }
 
+            contentViewsHeight += CGFloat(subviews.count - 1) * scrollable.stackView.spacing
+
+            let max = maxHeight - contentViewsHeight // - (2 * scrollable.stackView.spacing)
             if scrollableHeight >= maxHeight {
                 scrollableHeight = 200 //maxHeight - contentViewsHeight - (2 * scrollable.stackView.spacing)
             }
 
             scrollable.heightAnchor.constraint(equalToConstant: scrollableHeight).isActive = true
-            arrangedSubviews.insert(scrollable, at: i)
+//            arrangedSubviews.insert(scrollable, at: i)
         }
 
         return arrangedSubviews
