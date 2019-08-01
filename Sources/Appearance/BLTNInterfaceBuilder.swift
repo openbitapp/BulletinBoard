@@ -220,7 +220,7 @@ import UIKit
         stackView.stackView.distribution = .fill
         stackView.spacing = spacing
 
-        stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+//        stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
 //        stackView.scrollView.heightAnchor.constraint(greaterThanOrEqualTo: stackView.stackView.heightAnchor).isActive = true
 
         return stackView

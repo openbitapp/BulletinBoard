@@ -109,6 +109,7 @@ open class BLTNPageItem: BLTNActionItem {
         }
 
         let stackView = interfaceBuilder.makeScrollableStack()
+        var contentHeight: CGFloat = 0
 
         // Image View
         if let image = self.image {
@@ -122,10 +123,12 @@ open class BLTNPageItem: BLTNActionItem {
             }
             self.imageView = imageView
 //            contentViews.append(imageView)
+            contentHeight += imageView.intrinsicContentSize.height
             stackView.stackView.addArrangedSubview(imageView)
             if let viewsUnderImage = makeViewsUnderImage(with: interfaceBuilder) {
 //                contentViews.append(contentsOf: viewsUnderImage)
                 viewsUnderImage.forEach { view in
+                    contentHeight += view.intrinsicContentSize.height
                     stackView.stackView.addArrangedSubview(view)
                 }
             }
@@ -143,15 +146,18 @@ open class BLTNPageItem: BLTNActionItem {
 
         if let descriptionLabel = descriptionLabel {
 //            contentViews.append(descriptionLabel)
+            contentHeight += descriptionLabel.intrinsicContentSize.height
             stackView.stackView.addArrangedSubview(descriptionLabel)
             if let viewsUnderDescription = makeViewsUnderDescription(with: interfaceBuilder) {
 //                contentViews.append(contentsOf: viewsUnderDescription)
                 viewsUnderDescription.forEach { view in
+                    contentHeight += view.intrinsicContentSize.height
                     stackView.stackView.addArrangedSubview(view)
                 }
             }
         }
 
+        stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: contentHeight).isActive = true
         contentViews.append(stackView)
 
         return contentViews
