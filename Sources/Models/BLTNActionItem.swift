@@ -347,7 +347,12 @@ open class BLTNActionItem: NSObject, BLTNItem {
         }
 
         if let scrollable = scrollableView {
-            arrangedSubviews.forEach { view in
+            var subviews: [UIView] = arrangedSubviews
+            if let i = arrangedSubviews.firstIndex(of: scrollable) {
+                subviews.remove(at: i)
+            }
+
+            subviews.forEach { view in
                 contentViewsHeight += view.intrinsicContentSize.height + scrollable.stackView.spacing
             }
 
