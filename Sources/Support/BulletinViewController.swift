@@ -153,7 +153,7 @@ extension BulletinViewController {
         minYConstraint.priority = UILayoutPriority.required
 
         contentStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
-        contentStackView.scrollView.isScrollEnabled = false
+//        contentStackView.scrollView.isScrollEnabled = false
 
 //        contentStackView.axis = .vertical
         contentStackView.stackView.axis = .vertical
