@@ -540,8 +540,8 @@ extension BLTNItemManager {
 
         if elementsChanged {
 
-            currentItem.manager = self
             currentItem.setUp()
+            currentItem.manager = self
 
             for arrangedSubview in newHideableArrangedSubviews {
                 arrangedSubview.isHidden = isPreparing ? false : true
