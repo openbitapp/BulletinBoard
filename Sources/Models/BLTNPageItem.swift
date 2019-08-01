@@ -149,6 +149,10 @@ open class BLTNPageItem: BLTNActionItem {
             }
         }
 
+        stackSubviews.forEach { view in
+            stackView.stackView.addArrangedSubview(view)
+        }
+
         return stackView
     }
 
