@@ -530,9 +530,9 @@ extension BLTNItemManager {
         let window = presentingWindow ?? UIWindow(frame: UIScreen.main.bounds)
         let safeArea = window.safeAreaIfAvailable ?? .zero
         let horizontalPadding = safeArea.left + safeArea.right + (cardPadding * 2)
-        let verticalPadding: CGFloat = 0
+        var verticalPadding: CGFloat = 0
 
-        if !manager.hidesHomeIndicator {
+        if !hidesHomeIndicator {
             verticalPadding = safeArea.top + safeArea.bottom
         }
 
