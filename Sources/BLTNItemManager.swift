@@ -473,7 +473,8 @@ extension BLTNItemManager {
 
 //        for arrangedSubview in bulletinController.contentStackView.arrangedSubviews {
         for arrangedSubview in bulletinController.contentStackView.stackView.arrangedSubviews {
-            bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
+//            bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
+            bulletinController.contentStackView.stackView.removeArrangedSubview(arrangedSubview)
             arrangedSubview.removeFromSuperview()
         }
         
@@ -608,7 +609,8 @@ extension BLTNItemManager {
                 self.currentItem.onDisplay()
 
                 for arrangedSubview in oldArrangedSubviews {
-                    self.bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
+//                    self.bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
+                    self.bulletinController.contentStackView.stackView.removeArrangedSubview(arrangedSubview)
                     arrangedSubview.removeFromSuperview()
                 }
 
