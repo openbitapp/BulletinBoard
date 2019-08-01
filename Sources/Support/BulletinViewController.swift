@@ -29,8 +29,8 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
      * may break the layout of the card.
      */
 
-//    let contentStackView = UIStackView()
-    let contentStackView = ScrollableStackView()
+    let contentStackView = UIStackView()
+//    let contentStackView = ScrollableStackView()
 
     /// The view covering the content. Generated in `loadBackgroundView`.
     var backgroundView: BulletinBackgroundView!
@@ -152,16 +152,16 @@ extension BulletinViewController {
         minYConstraint.isActive = true
         minYConstraint.priority = UILayoutPriority.required
 
-        contentStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
-        contentStackView.scrollView.heightAnchor.constraint(equalTo: contentStackView.stackView.heightAnchor).isActive = true
-//        contentStackView.scrollView.isScrollEnabled = false
+//        contentStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+//        contentStackView.scrollView.heightAnchor.constraint(equalTo: contentStackView.stackView.heightAnchor).isActive = true
+////        contentStackView.scrollView.isScrollEnabled = false
 
-//        contentStackView.axis = .vertical
-        contentStackView.stackView.axis = .vertical
-//        contentStackView.alignment = .fill
-        contentStackView.stackView.alignment = .fill
-//        contentStackView.distribution = .fill
-        contentStackView.stackView.distribution = .fill
+        contentStackView.axis = .vertical
+//        contentStackView.stackView.axis = .vertical
+        contentStackView.alignment = .fill
+//        contentStackView.stackView.alignment = .fill
+        contentStackView.distribution = .fill
+//        contentStackView.stackView.distribution = .fill
 
         // Activity Indicator
 

@@ -471,10 +471,10 @@ extension BLTNItemManager {
 
         currentItem.onDismiss()
 
-//        for arrangedSubview in bulletinController.contentStackView.arrangedSubviews {
-        for arrangedSubview in bulletinController.contentStackView.stackView.arrangedSubviews {
-//            bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
-            bulletinController.contentStackView.stackView.removeArrangedSubview(arrangedSubview)
+        for arrangedSubview in bulletinController.contentStackView.arrangedSubviews {
+//        for arrangedSubview in bulletinController.contentStackView.stackView.arrangedSubviews {
+            bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
+//            bulletinController.contentStackView.stackView.removeArrangedSubview(arrangedSubview)
             arrangedSubview.removeFromSuperview()
         }
         
@@ -514,8 +514,8 @@ extension BLTNItemManager {
 
         // Tear down old item
 
-//        let oldArrangedSubviews = bulletinController.contentStackView.arrangedSubviews
-        let oldArrangedSubviews = bulletinController.contentStackView.stackView.arrangedSubviews
+        let oldArrangedSubviews = bulletinController.contentStackView.arrangedSubviews
+//        let oldArrangedSubviews = bulletinController.contentStackView.stackView.arrangedSubviews
         let oldHideableArrangedSubviews = recursiveArrangedSubviews(in: oldArrangedSubviews)
 
         if elementsChanged {
@@ -539,8 +539,8 @@ extension BLTNItemManager {
             }
 
             for arrangedSubview in newArrangedSubviews {
-//                bulletinController.contentStackView.addArrangedSubview(arrangedSubview)
-                bulletinController.contentStackView.stackView.addArrangedSubview(arrangedSubview)
+                bulletinController.contentStackView.addArrangedSubview(arrangedSubview)
+//                bulletinController.contentStackView.stackView.addArrangedSubview(arrangedSubview)
             }
 
         }
@@ -609,8 +609,8 @@ extension BLTNItemManager {
                 self.currentItem.onDisplay()
 
                 for arrangedSubview in oldArrangedSubviews {
-//                    self.bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
-                    self.bulletinController.contentStackView.stackView.removeArrangedSubview(arrangedSubview)
+                    self.bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
+//                    self.bulletinController.contentStackView.stackView.removeArrangedSubview(arrangedSubview)
                     arrangedSubview.removeFromSuperview()
                 }
 

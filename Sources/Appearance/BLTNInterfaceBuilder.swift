@@ -206,22 +206,24 @@ import UIKit
 
     }
 
-    @objc open func makeScrollView(with contentView: UIView) -> UIScrollView {
+    /**
+     * Creates a stack view to contain a group of objects.
+     *
+     * - parameter spacing: The spacing between elements. Defaults to `10`.
+     */
 
-        let scrollView = UIScrollView()
+    @objc open func makeScrollableStack(spacing: CGFloat = 10) -> ScrollableStackView {
 
-        scrollView.addSubview(contentView)
+        let stackView = ScrollableStackView()
+        stackView.stackView.axis = .vertical
+        stackView.stackView.alignment = .fill
+        stackView.stackView.distribution = .fill
+        stackView.spacing = spacing
 
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.scrollView.heightAnchor.constraint(greaterThanOrEqualTo: stackView.stackView.heightAnchor).isActive = true
 
-        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        return stackView
 
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-
-        return scrollView
     }
 
     /**
