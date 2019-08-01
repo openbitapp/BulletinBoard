@@ -338,14 +338,14 @@ open class BLTNActionItem: NSObject, BLTNItem {
             let buttonWrapper = interfaceBuilder.makeActionButton(title: actionButtonTitle)
             buttonsStack.addArrangedSubview(buttonWrapper)
             self.actionButton = buttonWrapper.button
-            contentViewsHeight += 55
+            contentViewsHeight += 55 + buttonsStack.spacing
         }
 
         if let alternativeButtonTitle = alternativeButtonTitle {
             let alternativeButtonWrapper = interfaceBuilder.makeActionButton(title: alternativeButtonTitle)
             buttonsStack.addArrangedSubview(alternativeButtonWrapper)
             self.alternativeButton = alternativeButtonWrapper.button
-            contentViewsHeight += 55
+            contentViewsHeight += 55 + buttonsStack.spacing
         }
 
         arrangedSubviews.append(buttonsStack)
