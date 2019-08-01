@@ -143,7 +143,7 @@ extension BulletinViewController {
 
         // ScrollView
 
-//        scrollView.addSubview(contentView)
+        scrollView.addSubview(contentStackView)
 //
 //        contentView.translatesAutoresizingMaskIntoConstraints = false
 //
