@@ -55,7 +55,7 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
     fileprivate var leadingConstraint: NSLayoutConstraint!
     fileprivate var trailingConstraint: NSLayoutConstraint!
     fileprivate var centerXConstraint: NSLayoutConstraint!
-    internal var maxWidthConstraint: NSLayoutConstraint!
+    fileprivate var maxWidthConstraint: NSLayoutConstraint!
 
     // Regular constraints
     fileprivate var widthConstraint: NSLayoutConstraint!
