@@ -30,7 +30,7 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
      */
 
 //    let contentStackView = UIStackView()
-    let contentStackView: ScrollableStackView
+    let contentStackView = ScrollableStackView()
 
     /// The view covering the content. Generated in `loadBackgroundView`.
     var backgroundView: BulletinBackgroundView!
@@ -72,16 +72,6 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
     fileprivate var contentBottomConstraint: NSLayoutConstraint!
 
     // MARK: - Deinit
-
-    init() {
-        self.contentStackView = ScrollableStackView(frame: UIScreen.main.bounds)
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        self.contentStackView = ScrollableStackView(frame: UIScreen.main.bounds)
-        super.init(coder: coder)
-    }
 
     deinit {
         cleanUpKeyboardLogic()
@@ -161,6 +151,8 @@ extension BulletinViewController {
         minYConstraint = contentView.topAnchor.constraint(greaterThanOrEqualTo: view.safeTopAnchor)
         minYConstraint.isActive = true
         minYConstraint.priority = UILayoutPriority.required
+
+        contentStackView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
 //        contentStackView.axis = .vertical
         contentStackView.stackView.axis = .vertical
