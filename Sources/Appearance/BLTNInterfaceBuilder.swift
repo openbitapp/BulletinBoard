@@ -206,6 +206,24 @@ import UIKit
 
     }
 
+    @objc open func makeScrollView(with contentView: UIView) -> UIScrollView {
+
+        let scrollView = UIScrollView()
+
+        scrollView.addSubview(contentView)
+
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+
+        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+
+        return scrollView
+    }
+
     /**
      * Wraps a view without intrinsic content size inside a view with an intrinsic content size.
      *
