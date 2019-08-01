@@ -4,6 +4,7 @@
  */
 
 import UIKit
+import Nantes
 
 /**
  * Generates interface elements for bulletins. Use this class to create custom bulletin items with
@@ -54,6 +55,25 @@ import UIKit
     @objc open func makeDescriptionLabel() -> UILabel {
 
         let descriptionLabel = UILabel()
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.textColor = appearance.descriptionTextColor
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = appearance.makeDescriptionFont()
+
+        descriptionLabel.adjustsFontSizeToFitWidth = appearance.shouldScaleFontIfContentTooLong
+        descriptionLabel.minimumScaleFactor = appearance.minimumScaleFactor
+
+        return descriptionLabel
+
+    }
+
+    /**
+     * Creates a standard description label.
+     */
+
+    @objc open func makeAttributedDescriptionLabel() -> NantesLabel {
+
+        let descriptionLabel = NantesLabel()
         descriptionLabel.textAlignment = .center
         descriptionLabel.textColor = appearance.descriptionTextColor
         descriptionLabel.numberOfLines = 0

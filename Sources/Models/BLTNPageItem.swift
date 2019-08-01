@@ -135,10 +135,12 @@ open class BLTNPageItem: BLTNActionItem {
         // Description Label
 
         if let attributedDescription = attributedDescriptionText {
-            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()
+//            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()
+            self.descriptionLabel = interfaceBuilder.makeAttributedDescriptionLabel()
             self.descriptionLabel?.attributedText = attributedDescription
         } else if let description = descriptionText {
-            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()
+//            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()
+            self.descriptionLabel = interfaceBuilder.makeAttributedDescriptionLabel()
             self.descriptionLabel?.text = description
         }
 

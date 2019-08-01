@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nantes
 
 /**
  * A standard bulletin item with that displays a large action button and a smaller button for alternative options.
@@ -304,8 +305,6 @@ open class BLTNActionItem: NSObject, BLTNItem {
         let maxWidth = self.maxWidth
         let maxHeight = self.maxHeight
 
-//        var index: Int?
-
         let interfaceBuilder = interfaceBuilderType.init(appearance: appearance, item: self)
 
         let contentViews = makeContentViews(with: interfaceBuilder)
@@ -323,7 +322,6 @@ open class BLTNActionItem: NSObject, BLTNItem {
 
             scrollableHeight += CGFloat(scrollable.stackView.arrangedSubviews.count - 1) * scrollable.stackView.spacing
             contentViewsHeight += 32
-//            index = arrangedSubviews.count
         }
 
         // Buttons stack
@@ -364,7 +362,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
 
             contentViewsHeight += (CGFloat(subviews.count - 1) * 32)
 
-            let max = maxHeight - contentViewsHeight // - (2 * scrollable.stackView.spacing)
+            let max = maxHeight - contentViewsHeight
             if scrollableHeight >= max {
                 scrollableHeight = max //maxHeight - contentViewsHeight - (2 * scrollable.stackView.spacing)
             }
@@ -462,4 +460,9 @@ open class BLTNActionItem: NSObject, BLTNItem {
         return arrangedSubviews
 
     }
+}
+
+extension BLTNActionItem: NantesLabelDelegate {
+
+    open func attributedLabel(_ label: NantesLabel, didSelectLink link: URL) {}
 }
