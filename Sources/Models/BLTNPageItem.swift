@@ -111,7 +111,6 @@ open class BLTNPageItem: BLTNActionItem {
         let stackView = interfaceBuilder.makeScrollableStack()
         var stackSubviews: [UIView] = []
         var contentHeight: CGFloat = 0
-        var maxWidth = manager?.maxWidth ?? 0
 
         // Image View
         if let image = self.image {

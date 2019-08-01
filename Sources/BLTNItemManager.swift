@@ -533,13 +533,14 @@ extension BLTNItemManager {
 
         // Create new views
 
+        (currentItem as? BLTNActionItem)?.maxWidth = maxWidth
         let newArrangedSubviews = currentItem.makeArrangedSubviews()
         let newHideableArrangedSubviews = recursiveArrangedSubviews(in: newArrangedSubviews)
 
         if elementsChanged {
 
-            currentItem.setUp()
             currentItem.manager = self
+            currentItem.setUp()
 
             for arrangedSubview in newHideableArrangedSubviews {
                 arrangedSubview.isHidden = isPreparing ? false : true

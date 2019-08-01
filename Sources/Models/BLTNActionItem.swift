@@ -32,6 +32,8 @@ import UIKit
 
 open class BLTNActionItem: NSObject, BLTNItem {
 
+    internal var maxWidth: CGFloat = 0
+
     // MARK: - Page Contents
 
     /**
