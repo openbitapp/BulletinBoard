@@ -79,6 +79,8 @@ import Nantes
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = appearance.makeDescriptionFont()
 
+        descriptionLabel.linkAttributes = appearance.linkAttributes
+
         descriptionLabel.adjustsFontSizeToFitWidth = appearance.shouldScaleFontIfContentTooLong
         descriptionLabel.minimumScaleFactor = appearance.minimumScaleFactor
 

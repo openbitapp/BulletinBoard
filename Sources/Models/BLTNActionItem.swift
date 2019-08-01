@@ -31,7 +31,7 @@ import Nantes
  * builder type, change the `interfaceBuilderType` property.
  */
 
-open class BLTNActionItem: NSObject, BLTNItem {
+open class BLTNActionItem: NSObject, BLTNItem, NantesLabelDelegate {
 
     internal var maxWidth: CGFloat = 0
     internal var maxHeight: CGFloat = 0
@@ -460,9 +460,6 @@ open class BLTNActionItem: NSObject, BLTNItem {
         return arrangedSubviews
 
     }
-}
-
-extension BLTNActionItem: NantesLabelDelegate {
 
     open func attributedLabel(_ label: NantesLabel, didSelectLink link: URL) {}
 }
