@@ -33,6 +33,7 @@ import UIKit
 open class BLTNActionItem: NSObject, BLTNItem {
 
     internal var maxWidth: CGFloat = 0
+    internal var maxHeight: CGFloat = 0
 
     // MARK: - Page Contents
 
@@ -301,6 +302,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
         var contentViewsHeight: CGFloat = 0
         var scrollableHeight: CGFloat = 0
         let maxWidth = self.maxWidth
+        let maxHeight = self.maxHeight
 
         var index: Int?
 
@@ -353,8 +355,8 @@ open class BLTNActionItem: NSObject, BLTNItem {
                 contentViewsHeight += view.intrinsicContentSize.height + scrollable.stackView.spacing
             }
 
-            if scrollableHeight >= UIScreen.main.bounds.height {
-                scrollableHeight = UIScreen.main.bounds.height - contentViewsHeight
+            if scrollableHeight >= maxHeight {
+                scrollableHeight = maxHeight - contentViewsHeight
             }
 
             scrollable.heightAnchor.constraint(equalToConstant: scrollableHeight).isActive = true

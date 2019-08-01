@@ -120,8 +120,6 @@ import UIKit
     fileprivate var shouldDisplayActivityIndicator: Bool = false
     fileprivate var lastActivityIndicatorColor: UIColor = .black
 
-    internal var maxWidth: CGFloat = 0
-
     // MARK: - Initialization
 
     /**
@@ -531,10 +529,15 @@ extension BLTNItemManager {
         let cardPadding = edgeSpacing.rawValue
         let window = presentingWindow ?? UIWindow(frame: UIScreen.main.bounds)
         let safeArea = window.safeAreaIfAvailable ?? .zero
-        let padding = safeArea.left + safeArea.right + (cardPadding * 2)
-        maxWidth = window.bounds.width - padding
+        let horizontalPadding = safeArea.left + safeArea.right + (cardPadding * 2)
+        let verticalPadding: CGFloat = 0
 
-        (currentItem as? BLTNActionItem)?.maxWidth = maxWidth
+        if !manager.hidesHomeIndicator {
+            verticalPadding = safeArea.top + safeArea.bottom
+        }
+
+        (currentItem as? BLTNActionItem)?.maxWidth = window.bounds.width - horizontalPadding
+        (currentItem as? BLTNActionItem)?.maxHeight = window.bounds.height - verticalPadding
         let newArrangedSubviews = currentItem.makeArrangedSubviews()
         let newHideableArrangedSubviews = recursiveArrangedSubviews(in: newArrangedSubviews)
 
