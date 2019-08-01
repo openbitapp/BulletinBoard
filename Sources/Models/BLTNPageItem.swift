@@ -159,6 +159,13 @@ open class BLTNPageItem: BLTNActionItem {
 
         contentHeight += CGFloat(stackSubviews.count) * stackView.spacing
 
+        var contentViewsHeight: CGFloat = 0
+        contentViews.forEach { view in
+            contentViewsHeight += view.sizeThatFits(.init(width: maxWidth, height: 0)).height + stackView.spacing
+        }
+
+        contentHeight -= contentViewsHeight
+
         stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: contentHeight).isActive = true
         contentViews.append(stackView)
 
