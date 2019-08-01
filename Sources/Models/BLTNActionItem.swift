@@ -352,11 +352,13 @@ open class BLTNActionItem: NSObject, BLTNItem {
 
         if let scrollable = scrollableView, let i = index {
             arrangedSubviews.forEach { view in
-                contentViewsHeight += view.intrinsicContentSize.height + scrollable.stackView.spacing
+                contentViewsHeight += view.intrinsicContentSize.height
             }
 
+            contentViewsHeight += (arrangedSubviews.count - 1) * scrollable.stackView.spacing
+
             if scrollableHeight >= maxHeight {
-                scrollableHeight = maxHeight - contentViewsHeight
+                scrollableHeight = maxHeight - contentViewsHeight - (2 * scrollable.stackView.spacing)
             }
 
             scrollable.heightAnchor.constraint(equalToConstant: scrollableHeight).isActive = true
