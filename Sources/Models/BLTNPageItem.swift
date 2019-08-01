@@ -150,12 +150,7 @@ open class BLTNPageItem: BLTNActionItem {
             }
         }
 
-        let cardPadding = edgeSpacing.rawValue
-        let safeArea = manager?.presentingWindow?.safeAreaInsets ?? .zero
-//        let safeArea = UIScreen.mai .view.safeAreaIfAvailable ?? .zero
-//        let padding = safeArea.left + safeArea.right + (cardPadding * 2)
-//        let maxWidth = bulletinController.view.bounds.size.width - padding
-        let maxWidth: CGFloat = 0
+        let maxWidth = self.maxWidth
         stackSubviews.forEach { view in
 //            contentHeight += view.intrinsicContentSize.height
             contentHeight += view.sizeThatFits(.init(width: maxWidth, height: 0)).height

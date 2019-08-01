@@ -181,10 +181,10 @@ extension BLTNItemManager {
             bulletinController.setNeedsUpdateOfHomeIndicatorAutoHidden()
         }
 
-//        let cardPadding = edgeSpacing.rawValue
-//        let safeArea = bulletinController.view.safeAreaIfAvailable ?? .zero
-//        let padding = safeArea.left + safeArea.right + (cardPadding * 2)
-//        maxWidth = bulletinController.view.bounds.size.width - padding
+        let cardPadding = edgeSpacing.rawValue
+        let safeArea = presentingWindow?.safeAreaIfAvailable ?? .zero
+        let padding = safeArea.left + safeArea.right + (cardPadding * 2)
+        maxWidth = bulletinController.view.bounds.size.width - padding
 
         isPrepared = true
         isPreparing = true
