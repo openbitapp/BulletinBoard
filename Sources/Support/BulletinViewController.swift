@@ -55,7 +55,7 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
     fileprivate var leadingConstraint: NSLayoutConstraint!
     fileprivate var trailingConstraint: NSLayoutConstraint!
     fileprivate var centerXConstraint: NSLayoutConstraint!
-    fileprivate var maxWidthConstraint: NSLayoutConstraint!
+    internal var maxWidthConstraint: NSLayoutConstraint!
 
     // Regular constraints
     fileprivate var widthConstraint: NSLayoutConstraint!
@@ -151,10 +151,6 @@ extension BulletinViewController {
         minYConstraint = contentView.topAnchor.constraint(greaterThanOrEqualTo: view.safeTopAnchor)
         minYConstraint.isActive = true
         minYConstraint.priority = UILayoutPriority.required
-
-//        contentStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
-//        contentStackView.scrollView.heightAnchor.constraint(equalTo: contentStackView.stackView.heightAnchor).isActive = true
-////        contentStackView.scrollView.isScrollEnabled = false
 
         contentStackView.axis = .vertical
 //        contentStackView.stackView.axis = .vertical

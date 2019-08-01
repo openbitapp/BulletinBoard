@@ -120,6 +120,8 @@ import UIKit
     fileprivate var shouldDisplayActivityIndicator: Bool = false
     fileprivate var lastActivityIndicatorColor: UIColor = .black
 
+    internal var maxWidth: CGFloat = 0
+
     // MARK: - Initialization
 
     /**
@@ -396,6 +398,8 @@ extension BLTNItemManager {
         assertIsPrepared()
         assertIsMainThread()
         bulletinController.loadView()
+
+        maxWidth = bulletinController.maxWidthConstraint?.constant ?? 0
 
         let refreshActivityIndicator = shouldDisplayActivityIndicator && isDetached
 
