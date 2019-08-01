@@ -302,6 +302,8 @@ open class BLTNActionItem: NSObject, BLTNItem {
         var scrollableHeight: CGFloat = 0
         let maxWidth = self.maxWidth
 
+        var index: Int?
+
         let interfaceBuilder = interfaceBuilderType.init(appearance: appearance, item: self)
 
         let contentViews = makeContentViews(with: interfaceBuilder)
@@ -309,13 +311,13 @@ open class BLTNActionItem: NSObject, BLTNItem {
 
         let scrollableView = makeScrollableViews(with: interfaceBuilder)
         if let scrollable = scrollableView {
-            arrangedSubviews.append(scrollable)
-
             scrollable.stackView.arrangedSubviews.forEach { view in
                 scrollableHeight += view.sizeThatFits(.init(width: maxWidth, height: 0)).height
             }
 
-            scrollableHeight += CGFloat(scrollable.stackView.arrangedSubviews.count) * scrollable.stackView.spacing
+            scrollableHeight += CGFloat(scrollable.stackView.arrangedSubviews.count - 1) * scrollable.stackView.spacing
+
+            index = arrangedSubviews.count
         }
 
         // Buttons stack
@@ -346,13 +348,8 @@ open class BLTNActionItem: NSObject, BLTNItem {
             arrangedSubviews.append(contentsOf: footerViews)
         }
 
-        if let scrollable = scrollableView {
-            var subviews: [UIView] = arrangedSubviews
-            if let i = arrangedSubviews.firstIndex(of: scrollable) {
-                subviews.remove(at: i)
-            }
-
-            subviews.forEach { view in
+        if let scrollable = scrollableView, let i = index {
+            arrangedSubviews.forEach { view in
                 contentViewsHeight += view.intrinsicContentSize.height + scrollable.stackView.spacing
             }
 
@@ -361,6 +358,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
             }
 
             scrollable.stackView.heightAnchor.constraint(equalToConstant: scrollableHeight).isActive = true
+            arrangedSubviews.insert(scrollable, at: i)
 //            stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: contentHeight).isActive = true
         }
 
