@@ -153,7 +153,7 @@ open class BLTNPageItem: BLTNActionItem {
         let maxWidth = self.maxWidth
         stackSubviews.forEach { view in
 //            contentHeight += view.intrinsicContentSize.height
-            contentHeight += view.sizeThatFits(.init(width: maxWidth, height: 0))
+            contentHeight += view.sizeThatFits(.init(width: maxWidth, height: 0)).height
             stackView.stackView.addArrangedSubview(view)
         }
 
