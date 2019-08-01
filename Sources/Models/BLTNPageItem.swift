@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nantes
 
 /**
  * A standard bulletin item with a title and optional additional informations. It can display a large
@@ -65,7 +66,7 @@ open class BLTNPageItem: BLTNActionItem {
     // MARK: - View Management
 
     open var titleLabel: BLTNTitleLabelContainer?
-    open var descriptionLabel: UILabel?
+    open var descriptionLabel: NantesLabel?
     open var imageView: UIImageView?
 
 
@@ -135,11 +136,11 @@ open class BLTNPageItem: BLTNActionItem {
         // Description Label
 
         if let attributedDescription = attributedDescriptionText {
-//            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()
+//            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()makeAttributedDescriptionLabel
             self.descriptionLabel = interfaceBuilder.makeAttributedDescriptionLabel()
             self.descriptionLabel?.attributedText = attributedDescription
         } else if let description = descriptionText {
-//            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()
+//            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()makeAttributedDescriptionLabel
             self.descriptionLabel = interfaceBuilder.makeAttributedDescriptionLabel()
             self.descriptionLabel?.text = description
         }
