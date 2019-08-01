@@ -351,7 +351,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
         }
 
         if let scrollable = scrollableView, let i = index {
-            let subviews = recursiveArrangedSubviews(in: arrangedSubviews)
+            let subviews = recursiveArrangedSubviews(in: arrangedSubviews).filter { !($0 is UIStackView) })
             subviews.forEach { view in
                 contentViewsHeight += view.intrinsicContentSize.height
             }
