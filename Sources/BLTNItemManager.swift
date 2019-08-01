@@ -181,11 +181,6 @@ extension BLTNItemManager {
             bulletinController.setNeedsUpdateOfHomeIndicatorAutoHidden()
         }
 
-        let cardPadding = edgeSpacing.rawValue
-        let safeArea = presentingWindow?.safeAreaIfAvailable ?? .zero
-        let padding = safeArea.left + safeArea.right + (cardPadding * 2)
-        maxWidth = bulletinController.view.bounds.size.width - padding
-
         isPrepared = true
         isPreparing = true
         shouldDisplayActivityIndicator = rootItem.shouldStartWithActivityIndicator
@@ -532,6 +527,11 @@ extension BLTNItemManager {
         }
 
         // Create new views
+
+        let cardPadding = edgeSpacing.rawValue
+        let safeArea = presentingWindow?.safeAreaIfAvailable ?? .zero
+        let padding = safeArea.left + safeArea.right + (cardPadding * 2)
+        maxWidth = (presentingWindow?.bounds.width ?? 0) - padding
 
         (currentItem as? BLTNActionItem)?.maxWidth = maxWidth
         let newArrangedSubviews = currentItem.makeArrangedSubviews()
