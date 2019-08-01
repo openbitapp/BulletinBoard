@@ -285,6 +285,10 @@ open class BLTNActionItem: NSObject, BLTNItem {
         return []
     }
 
+    open func makeScrollableViews(with interfaceBuilder: BLTNInterfaceBuilder) -> ScrollableStackView? {
+        return nil
+    }
+
     /**
      * Creates the list of views to display on the bulletin.
      *
@@ -294,11 +298,25 @@ open class BLTNActionItem: NSObject, BLTNItem {
 
     public func makeArrangedSubviews() -> [UIView] {
         var arrangedSubviews: [UIView] = []
+        var contentViewsHeight: CGFloat = 0
+        var scrollableHeight: CGFloat = 0
+        let maxWidth = self.maxWidth
 
         let interfaceBuilder = interfaceBuilderType.init(appearance: appearance, item: self)
 
         let contentViews = makeContentViews(with: interfaceBuilder)
         arrangedSubviews.append(contentsOf: contentViews)
+
+        let scrollableView = makeScrollableViews(with: interfaceBuilder)
+        if let scrollable = scrollableView {
+            arrangedSubviews.append(scrollable)
+
+            scrollable.stackView.arrangedSubviews.forEach { view in
+                scrollableHeight += view.sizeThatFits(.init(width: maxWidth, height: 0)).height
+            }
+
+            scrollableHeight += CGFloat(scrollable.stackView.arrangedSubviews.count) * scrollable.stackView.spacing
+        }
 
         // Buttons stack
 
@@ -327,6 +345,20 @@ open class BLTNActionItem: NSObject, BLTNItem {
         if let footerViews = makeFooterViews(with: interfaceBuilder) {
             arrangedSubviews.append(contentsOf: footerViews)
         }
+
+        if let scrollable = scrollableView {
+            arrangedSubviews.forEach { view in
+                contentViewsHeight += view.intrinsicContentSize.height + scrollable.stackView.spacing
+            }
+
+            if scrollableHeight >= UIScreen.main.bounds.height {
+                scrollableHeight = UIScreen.main.bounds.height - contentViewsHeight
+            }
+
+            scrollable.stackView.heightAnchor.constraint(equalToConstant: scrollableHeight).isActive = true
+//            stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: contentHeight).isActive = true
+        }
+
         return arrangedSubviews
 
     }

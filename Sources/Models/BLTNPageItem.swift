@@ -108,10 +108,6 @@ open class BLTNPageItem: BLTNActionItem {
             }
         }
 
-        let stackView = interfaceBuilder.makeScrollableStack()
-        var stackSubviews: [UIView] = []
-        var contentHeight: CGFloat = 0
-
         // Image View
         if let image = self.image {
             let imageView = UIImageView()
@@ -123,13 +119,18 @@ open class BLTNPageItem: BLTNActionItem {
                 imageView.accessibilityLabel = accessibilityLabel
             }
             self.imageView = imageView
-//            contentViews.append(imageView)
-            stackSubviews.append(imageView)
+            contentViews.append(imageView)
             if let viewsUnderImage = makeViewsUnderImage(with: interfaceBuilder) {
-//                contentViews.append(contentsOf: viewsUnderImage)
-                stackSubviews.append(contentsOf: viewsUnderImage)
+                contentViews.append(contentsOf: viewsUnderImage)
             }
         }
+
+        return contentViews
+    }
+
+    open override func makeScrollableViews(with interfaceBuilder: BLTNInterfaceBuilder) -> ScrollableStackView? {
+        let stackView = interfaceBuilder.makeScrollableStack()
+        var stackSubviews: [UIView] = []
 
         // Description Label
 
@@ -142,36 +143,13 @@ open class BLTNPageItem: BLTNActionItem {
         }
 
         if let descriptionLabel = descriptionLabel {
-//            contentViews.append(descriptionLabel)
             stackSubviews.append(descriptionLabel)
             if let viewsUnderDescription = makeViewsUnderDescription(with: interfaceBuilder) {
-//                contentViews.append(contentsOf: viewsUnderDescription)
                 stackSubviews.append(contentsOf: viewsUnderDescription)
             }
         }
 
-        let maxWidth = self.maxWidth
-        stackSubviews.forEach { view in
-//            contentHeight += view.intrinsicContentSize.height
-            contentHeight += view.sizeThatFits(.init(width: maxWidth, height: 0)).height
-            stackView.stackView.addArrangedSubview(view)
-        }
-
-        contentHeight += CGFloat(stackSubviews.count) * stackView.spacing
-
-        var contentViewsHeight: CGFloat = 0
-        contentViews.forEach { view in
-            contentViewsHeight += view.intrinsicContentSize.height + stackView.spacing
-        }
-
-        if contentHeight >= UIScreen.main.bounds.height {
-            contentHeight = UIScreen.main.bounds.height - contentViewsHeight
-        }
-
-        stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: contentHeight).isActive = true
-        contentViews.append(stackView)
-
-        return contentViews
+        return stackView
     }
 
 
