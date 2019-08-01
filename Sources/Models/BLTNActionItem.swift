@@ -357,7 +357,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
                 scrollableHeight = UIScreen.main.bounds.height - contentViewsHeight
             }
 
-            scrollable.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            scrollable.heightAnchor.constraint(equalToConstant: scrollableHeight).isActive = true
             arrangedSubviews.insert(scrollable, at: i)
         }
 
