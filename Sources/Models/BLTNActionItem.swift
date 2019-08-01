@@ -362,7 +362,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
         if let scrollable = scrollableView {
             let subviews = recursiveArrangedSubviews(in: arrangedSubviews).filter { !($0 is UIStackView) }
 
-            contentViewsHeight += CGFloat(subviews.count - 1) * scrollable.stackView.spacing
+            contentViewsHeight += CGFloat(subviews.count - 1) * 32
 
             let max = maxHeight - contentViewsHeight // - (2 * scrollable.stackView.spacing)
             if scrollableHeight >= max {
