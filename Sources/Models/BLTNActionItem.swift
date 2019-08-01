@@ -355,7 +355,7 @@ open class BLTNActionItem: NSObject, BLTNItem {
                 contentViewsHeight += view.intrinsicContentSize.height
             }
 
-            contentViewsHeight += (arrangedSubviews.count - 1) * scrollable.stackView.spacing
+            contentViewsHeight += CGFloat(arrangedSubviews.count - 1) * scrollable.stackView.spacing
 
             if scrollableHeight >= maxHeight {
                 scrollableHeight = maxHeight - contentViewsHeight - (2 * scrollable.stackView.spacing)
