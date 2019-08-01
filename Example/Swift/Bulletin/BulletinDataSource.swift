@@ -74,8 +74,20 @@ enum BulletinDataSource {
 
         let page = TextFieldBulletinPage(title: "Enter your Name")
         page.isDismissable = false
-        page.descriptionText = "To create your profile, please tell us your name. We will use it to customize your feed."
+//        page.descriptionText = "To create your profile, please tell us your name. We will use it to customize your feed."
         page.actionButtonTitle = "Sign Up"
+
+        page.descriptionText = """
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper felis vitae ligula aliquam, id accumsan ipsum rhoncus. Sed non placerat tellus, id bibendum magna. Sed eu ornare libero. Fusce vel ex in ligula pharetra pharetra ut vitae felis. In hac habitasse platea dictumst. In tincidunt finibus ultricies. Cras non sem dignissim, varius sem sed, dignissim massa. Donec lobortis posuere elit, vitae hendrerit ante aliquet eu. Vivamus sit amet ipsum vel nunc accumsan pretium tristique ac dolor. Ut nec finibus erat.
+
+        Sed auctor et lectus non dictum. Cras mi dolor, vulputate et sagittis ut, lobortis vitae orci. Duis vitae gravida erat. Suspendisse semper risus mauris, ac volutpat urna vulputate vitae. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed elit dolor, egestas eu venenatis non, aliquam id nisi. Curabitur vehicula luctus leo ac rhoncus. Integer hendrerit accumsan augue eu volutpat. Integer viverra magna vel erat mollis, ultricies venenatis arcu fringilla. Quisque auctor bibendum convallis. Phasellus ac turpis placerat, aliquet tortor semper, sodales enim. Phasellus vel semper risus. Etiam gravida condimentum massa, eu mattis sapien porta in. Nunc aliquam consequat lorem nec pellentesque.
+
+        Curabitur fermentum porttitor nunc suscipit ullamcorper. Vestibulum ultricies, nibh et tincidunt facilisis, urna tortor egestas velit, ut semper augue turpis vitae tortor. Sed placerat malesuada arcu in tempus. Nullam mollis ultrices justo vitae varius. Vestibulum quis dolor et risus imperdiet rhoncus a id sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In fermentum sit amet erat sed fringilla. In eu gravida urna. Praesent accumsan venenatis felis id tristique. Maecenas faucibus, lectus nec dignissim sollicitudin, tortor augue malesuada est, ac ullamcorper erat ante quis nunc. Morbi sagittis dui id tortor suscipit, pellentesque suscipit nibh porttitor. Proin congue convallis libero in tempor.
+
+        Sed dui magna, fermentum eget tellus vitae, euismod lobortis leo. Maecenas mi nisl, cursus ac dapibus eu, porta non tortor. Quisque augue lorem, convallis non ipsum a, mattis porta metus. Etiam non varius mauris. Nunc a molestie dui. Morbi commodo ex non vehicula semper. Vivamus quam massa, sodales quis pellentesque non, posuere vitae massa. Proin quis quam a magna cursus tincidunt et eu urna. Donec ut orci facilisis, pharetra enim ac, cursus risus. Nulla neque dolor, cursus non iaculis commodo, placerat ac lacus. Sed facilisis tincidunt massa. Phasellus ac arcu sed neque porta consectetur.
+
+        Aliquam ac tellus a urna posuere tincidunt. Vivamus ornare eu mi et fermentum. Quisque ante lorem, efficitur ac blandit quis, auctor non erat. Curabitur eget facilisis turpis. Praesent et mi suscipit, viverra erat eget, tincidunt risus. Sed fermentum, leo ut convallis euismod, felis augue euismod eros, ultricies bibendum metus enim eget leo. Fusce et bibendum augue, et iaculis urna. Vestibulum pretium enim non volutpat tincidunt. Aenean quis laoreet mauris. Sed tempor ante vel feugiat sagittis. Mauris a massa vel nulla viverra fringilla. Curabitur eget ultrices turpis.
+        """
 
         page.textInputHandler = { (item, text) in
             print("Text: \(text ?? "nil")")
