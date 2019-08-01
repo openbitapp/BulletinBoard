@@ -351,7 +351,8 @@ open class BLTNActionItem: NSObject, BLTNItem {
         }
 
         if let scrollable = scrollableView, let i = index {
-            arrangedSubviews.forEach { view in
+            let subviews = recursiveArrangedSubviews(in: arrangedSubviews)
+            subviews.forEach { view in
                 contentViewsHeight += view.intrinsicContentSize.height
             }
 
@@ -434,4 +435,24 @@ open class BLTNActionItem: NSObject, BLTNItem {
         dismissalHandler?(self)
     }
 
+
+    private func recursiveArrangedSubviews(in views: [UIView]) -> [UIView] {
+
+        var arrangedSubviews: [UIView] = []
+
+        for view in views {
+
+            if let stack = view as? UIStackView {
+                arrangedSubviews.append(stack)
+                let recursiveViews = self.recursiveArrangedSubviews(in: stack.arrangedSubviews)
+                arrangedSubviews.append(contentsOf: recursiveViews)
+            } else {
+                arrangedSubviews.append(view)
+            }
+
+        }
+
+        return arrangedSubviews
+
+    }
 }
