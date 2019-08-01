@@ -529,9 +529,10 @@ extension BLTNItemManager {
         // Create new views
 
         let cardPadding = edgeSpacing.rawValue
-        let safeArea = presentingWindow?.safeAreaIfAvailable ?? .zero
+        let window = presentingWindow ?? UIWindow(frame: UIScreen.main.bounds)
+        let safeArea = window.safeAreaIfAvailable ?? .zero
         let padding = safeArea.left + safeArea.right + (cardPadding * 2)
-        maxWidth = (presentingWindow?.bounds.width ?? 0) - padding
+        maxWidth = window.bounds.width - padding
 
         (currentItem as? BLTNActionItem)?.maxWidth = maxWidth
         let newArrangedSubviews = currentItem.makeArrangedSubviews()
