@@ -471,7 +471,8 @@ extension BLTNItemManager {
 
         currentItem.onDismiss()
 
-        for arrangedSubview in bulletinController.contentStackView.arrangedSubviews {
+//        for arrangedSubview in bulletinController.contentStackView.arrangedSubviews {
+        for arrangedSubview in bulletinController.contentStackView.stackView.arrangedSubviews {
             bulletinController.contentStackView.removeArrangedSubview(arrangedSubview)
             arrangedSubview.removeFromSuperview()
         }
@@ -512,7 +513,8 @@ extension BLTNItemManager {
 
         // Tear down old item
 
-        let oldArrangedSubviews = bulletinController.contentStackView.arrangedSubviews
+//        let oldArrangedSubviews = bulletinController.contentStackView.arrangedSubviews
+        let oldArrangedSubviews = bulletinController.contentStackView.stackView.arrangedSubviews
         let oldHideableArrangedSubviews = recursiveArrangedSubviews(in: oldArrangedSubviews)
 
         if elementsChanged {
@@ -536,7 +538,8 @@ extension BLTNItemManager {
             }
 
             for arrangedSubview in newArrangedSubviews {
-                bulletinController.contentStackView.addArrangedSubview(arrangedSubview)
+//                bulletinController.contentStackView.addArrangedSubview(arrangedSubview)
+                bulletinController.contentStackView.stackView.addArrangedSubview(arrangedSubview)
             }
 
         }
