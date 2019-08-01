@@ -31,6 +31,8 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
 
     let contentStackView = UIStackView()
 
+    let scrollView = UIScrollView()
+
     /// The view covering the content. Generated in `loadBackgroundView`.
     var backgroundView: BulletinBackgroundView!
 
@@ -113,6 +115,8 @@ extension BulletinViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
 
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
         view.addSubview(contentView)
 
         // Content View
@@ -137,17 +141,41 @@ extension BulletinViewController {
 
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
 
+        // ScrollView
+
+//        scrollView.addSubview(contentView)
+//
+//        contentView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+//        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+//        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+//        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+//
+//        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+
         // Content Stack View
 
-        contentView.addSubview(contentStackView)
+//        contentView.addSubview(contentStackView)
+        contentView.addSubview(scrollView)
 
-        stackLeadingConstraint = contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+//        stackLeadingConstraint = contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+//        stackLeadingConstraint.isActive = true
+//
+//        stackTrailingConstraint = contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+//        stackTrailingConstraint.isActive = true
+//
+//        minYConstraint = contentView.topAnchor.constraint(greaterThanOrEqualTo: view.safeTopAnchor)
+//        minYConstraint.isActive = true
+//        minYConstraint.priority = UILayoutPriority.required
+
+        stackLeadingConstraint = scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
         stackLeadingConstraint.isActive = true
 
-        stackTrailingConstraint = contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        stackTrailingConstraint = scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         stackTrailingConstraint.isActive = true
 
-        minYConstraint = contentView.topAnchor.constraint(greaterThanOrEqualTo: view.safeTopAnchor)
+        minYConstraint = scrollView.topAnchor.constraint(greaterThanOrEqualTo: view.safeTopAnchor)
         minYConstraint.isActive = true
         minYConstraint.priority = UILayoutPriority.required
 
@@ -173,8 +201,11 @@ extension BulletinViewController {
 
         // Vertical Position
 
-        stackBottomConstraint = contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        contentTopConstraint = contentView.topAnchor.constraint(equalTo: contentStackView.topAnchor)
+//        stackBottomConstraint = contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+//        contentTopConstraint = contentView.topAnchor.constraint(equalTo: contentStackView.topAnchor)
+
+        stackBottomConstraint = scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        contentTopConstraint = contentView.topAnchor.constraint(equalTo: scrollView.topAnchor)
 
         stackBottomConstraint.isActive = true
         contentTopConstraint.isActive = true
