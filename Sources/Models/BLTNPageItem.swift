@@ -150,6 +150,7 @@ open class BLTNPageItem: BLTNActionItem {
             descriptionLinks.forEach { (url, range) in
                 descriptionLabel.addLink(to: url, withRange: range)
             }
+            descriptionLabel.delegate = self
             stackSubviews.append(descriptionLabel)
             if let viewsUnderDescription = makeViewsUnderDescription(with: interfaceBuilder) {
                 stackSubviews.append(contentsOf: viewsUnderDescription)
