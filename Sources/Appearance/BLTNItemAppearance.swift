@@ -105,6 +105,7 @@ import UIKit
 
 
     public var linkAttributes: [NSAttributedString.Key : Any]? = nil
+    public var activeLinkAttributes: [NSAttributedString.Key : Any]? = nil
 
 
 }
