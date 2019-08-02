@@ -292,6 +292,22 @@ open class BLTNActionItem: NSObject, BLTNItem, NantesLabelDelegate {
     }
 
     /**
+     * The views to display above the buttons.
+     *
+     * You can override this method to insert custom views after the description. The default implementation
+     * returns `nil` and does not append elements after the description.
+     *
+     * This method is called inside `makeArrangedSubviews` after the description is created.
+     *
+     * - parameter interfaceBuilder: The interface builder used to create the description.
+     * - returns: The views to display after the description, or `nil` if no views should be added.
+     */
+
+    open func makeViewsAboveButtons(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
+        return nil
+    }
+
+    /**
      * Creates the list of views to display on the bulletin.
      *
      * This is an implementation detail of `BLTNItem` and you should not call it directly. Subclasses should not override this method, and should
@@ -331,6 +347,12 @@ open class BLTNActionItem: NSObject, BLTNItem, NantesLabelDelegate {
         }
 
         let buttonsStack = interfaceBuilder.makeGroupStack(spacing: 10)
+
+        if let viewsAboveButtons = makeViewsAboveButtons(with: interfaceBuilder) {
+            viewsAboveButtons.forEach { view in
+                buttonsStack.addArrangedSubview(view)
+            }
+        }
 
         if let actionButtonTitle = actionButtonTitle {
             let buttonWrapper = interfaceBuilder.makeActionButton(title: actionButtonTitle)
