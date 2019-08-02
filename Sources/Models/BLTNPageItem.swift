@@ -8,6 +8,7 @@
 
 import UIKit
 import Nantes
+import Foundation
 
 /**
  * A standard bulletin item with a title and optional additional informations. It can display a large
@@ -61,6 +62,8 @@ open class BLTNPageItem: BLTNActionItem {
      */
 
     public var attributedDescriptionText: NSAttributedString?
+
+    public var descriptionLinks: [(URL, NSRange)] = []
 
 
     // MARK: - View Management
@@ -136,16 +139,17 @@ open class BLTNPageItem: BLTNActionItem {
         // Description Label
 
         if let attributedDescription = attributedDescriptionText {
-//            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()makeAttributedDescriptionLabel
             self.descriptionLabel = interfaceBuilder.makeAttributedDescriptionLabel()
             self.descriptionLabel?.attributedText = attributedDescription
         } else if let description = descriptionText {
-//            self.descriptionLabel = interfaceBuilder.makeDescriptionLabel()makeAttributedDescriptionLabel
             self.descriptionLabel = interfaceBuilder.makeAttributedDescriptionLabel()
             self.descriptionLabel?.text = description
         }
 
         if let descriptionLabel = descriptionLabel {
+            descriptionLinks.forEach { (url, range) in
+                descriptionLabel.addLink(to: url, withRange: range)
+            }
             stackSubviews.append(descriptionLabel)
             if let viewsUnderDescription = makeViewsUnderDescription(with: interfaceBuilder) {
                 stackSubviews.append(contentsOf: viewsUnderDescription)
@@ -226,19 +230,3 @@ open class BLTNPageItem: BLTNActionItem {
         return nil
     }
 }
-
-
-//extension UIScreen {
-//
-//    public var safeAreaInsets: UIEdgeInsets? {
-//        guard let rootView = UIApplication.shared.keyWindow else { return .zero }
-//        if let mainController = rootView.rootViewController as? MainController,
-//            let selectedController = mainController.selectedViewController as? UINavigationController,
-//            let topController = selectedController.topViewController {
-//            return topController.view?.safeAreaInsets ?? selectedController.view?.safeAreaInsets ?? rootView.safeAreaInsets
-//        }
-//        return rootView.safeAreaInsets
-////        guard let rootController = rootView.rootViewController else { return rootView.safeAreaInsets }
-////        return rootController.view.safeAreaInsets
-//    }
-//}
