@@ -39,5 +39,4 @@ swiftpm
 
 # Carthage
 Carthage/Build
-
-
+Carthage/Checkouts
