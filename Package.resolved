@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Nantes",
+        "repositoryURL": "https://github.com/openbitapp/Nantes.git",
+        "state": {
+          "branch": null,
+          "revision": "666926074a1d794012faebe40e4c70ab02735df8",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
